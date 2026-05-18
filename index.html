@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>个人简历 | Lynn Sean</title>
+    <title>个人简历 | Resume - Lynn Sean</title>
     <style>
         * {
             margin: 0;
@@ -37,7 +37,6 @@
             gap: 40px;
         }
 
-        /* 六边形头像区域 - 增大到180px */
         .header-avatar {
             flex-shrink: 0;
             position: relative;
@@ -153,6 +152,41 @@
             color: #c0c0c0;
             line-height: 1.8;
             max-width: 600px;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 8px;
+            background: rgba(26, 26, 46, 0.9);
+            padding: 8px 12px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .lang-btn {
+            padding: 6px 14px;
+            border: none;
+            background: transparent;
+            color: #888;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .lang-btn:hover {
+            color: #fff;
+        }
+
+        .lang-btn.active {
+            background: #C4A052;
+            color: #fff;
         }
 
         .summary {
@@ -430,7 +464,6 @@
             margin-bottom: 25px;
         }
 
-        /* GitHub Repo Card Styles */
         .github-repo-card {
             background: linear-gradient(135deg, #f6f8fa 0%, #ffffff 100%);
             border: 1px solid #e1e4e8;
@@ -546,10 +579,6 @@
             background: #b6e3ff;
         }
 
-        .project-item {
-            margin-bottom: 25px;
-        }
-
         .project-name {
             font-size: 15px;
             font-weight: 600;
@@ -640,6 +669,11 @@
                 width: 48px;
                 height: 48px;
             }
+
+            .lang-switcher {
+                top: 10px;
+                right: 10px;
+            }
         }
 
         @media print {
@@ -662,26 +696,35 @@
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
+
+            .lang-switcher {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
     <div class="container">
         <header class="header">
             <div class="header-content">
-                <!-- 六边形头像轮播 - 180px -->
                 <div class="header-avatar">
                     <div class="avatar-ring"></div>
                     <div class="avatar-mask">
                         <div class="avatar-carousel">
                             <div class="avatar-slide active">
-                                <img src="IMG_0255.JPG" alt="生活照片1">
+                                <img src="IMG_0255.JPG" alt="Photo 1">
                             </div>
                             <div class="avatar-slide">
-                                <img src="IMG_0688.JPG" alt="生活照片2">
+                                <img src="IMG_0688.JPG" alt="Photo 2">
                             </div>
                             <div class="avatar-slide">
-                                <img src="766e48772303236d7a7971863e86b3f3.JPG" alt="生活照片3">
+                                <img src="766e48772303236d7a7971863e86b3f3.JPG" alt="Photo 3">
                             </div>
                         </div>
                     </div>
@@ -691,45 +734,45 @@
                     <div class="header-top">
                         <div class="name-section">
                             <h1>尚林 (Lynn Sean)</h1>
-                            <p class="title">全栈开发 | 量化系统开发 | 金融科技基础设施</p>
+                            <p class="title" data-i18n="title">全栈开发 | 量化系统开发 | 金融科技基础设施</p>
                         </div>
                         <div class="contact-info">
-                            <div>天津</div>
+                            <div data-i18n="location">天津</div>
                             <div><a href="mailto:lynnshou@outlook.com">lynnshou@outlook.com</a></div>
                             <div><a href="https://www.linkedin.com/in/林-尚-68b6a71b3">LinkedIn</a></div>
                         </div>
                     </div>
-                    <p class="header-summary">CFA持证人，拥有逾10年技术开发经验，从硬件研发到金融系统架构。目前在券商网络金融部负责核心交易系统开发，主导量化数据平台、实时行情系统与CI/CD流水线建设。擅长构建高可用数据基础设施，与量化研究团队紧密协作交付交易级系统。具备扎实的金融理论基础与丰富的LLM/Agent工程经验。</p>
+                    <p class="header-summary" data-i18n="headerSummary">CFA持证人，拥有逾10年技术开发经验，从硬件研发到金融系统架构。目前在券商网络金融部负责核心交易系统开发，主导量化数据平台、实时行情系统与CI/CD流水线建设。擅长构建高可用数据基础设施，与量化研究团队紧密协作交付交易级系统。具备扎实的金融理论基础与丰富的LLM/Agent工程经验。</p>
                 </div>
             </div>
         </header>
 
         <section class="summary">
-            <h2 class="section-title">个人简介</h2>
-            <p>专注于金融科技领域的数据基础设施与系统化交易技术支持。在券商核心系统开发中积累了丰富经验，擅长设计实时数据管道、量化分析API及高可用交易系统。热衷于将前沿技术（LLM/Agent、云原生）应用于金融场景，推动交易系统的智能化与自动化。</p>
+            <h2 class="section-title" data-i18n="summaryTitle">个人简介</h2>
+            <p data-i18n="summaryContent">专注于金融科技领域的数据基础设施与系统化交易技术支持。在券商核心系统开发中积累了丰富经验，擅长设计实时数据管道、量化分析API及高可用交易系统。热衷于将前沿技术（LLM/Agent、云原生）应用于金融场景，推动交易系统的智能化与自动化。</p>
         </section>
 
         <div class="main-content">
             <div class="left-column">
                 <section class="experience">
-                    <h2 class="section-title">工作经历</h2>
+                    <h2 class="section-title" data-i18n="experienceTitle">工作经历</h2>
                     
                     <div class="experience-item">
                         <div class="job-header">
                             <img src="bhzq.jpeg" alt="渤海证券" class="company-logo">
                             <div class="job-info">
-                                <div class="job-title">全栈开发负责人</div>
-                                <div class="company">渤海证券股份有限公司 · 网络金融部</div>
-                                <div class="date">2020.09 - 至今</div>
+                                <div class="job-title" data-i18n="job1Title">全栈开发负责人</div>
+                                <div class="company" data-i18n="job1Company">渤海证券股份有限公司 · 网络金融部</div>
+                                <div class="date" data-i18n="job1Date">2020.09 - 至今</div>
                             </div>
                         </div>
                         <ul class="job-desc">
-                            <li><strong>量化数据平台架构:</strong> 设计并交付可扩展的量化数据分析存储系统，整合实时行情（腾讯财经API/Tushare/聚源JYDB）与历史数据集，为量化研究团队提供标准化数据API与信号研究基础设施</li>
-                            <li><strong>系统化交易支持:</strong> 与量化研究团队紧密协作，捕获业务需求并实现数据增强/分析模块，支持衍生品交易策略开发与绩效分析</li>
-                            <li><strong>CI/CD流水线建设:</strong> 搭建并维护GitLab/Gitee CI/CD流水线，实现自动化测试、构建与部署，提升交付效率与运维稳定性</li>
-                            <li><strong>核心APP交付:</strong> 主导渤海证券综合APP全栈开发（iOS/Android/鸿蒙），已上架App Store及各大应用商店，服务百万级用户</li>
-                            <li><strong>LLM/Agent智能服务:</strong> 基于FastGPT平台构建企业级MCP智能服务体系，实现客户资产查询、开户、经纪业务及投顾咨询等核心业务自动化，提升营业部运营效率40%+</li>
-                            <li><strong>系统稳定性保障:</strong> 识别并自动化修复 recurring issues，建立监控告警体系，保障核心交易系统7×24高可用运行</li>
+                            <li data-i18n="job1Desc1"><strong>量化数据平台架构:</strong> 设计并交付可扩展的量化数据分析存储系统，整合实时行情（腾讯财经API/Tushare/聚源JYDB）与历史数据集，为量化研究团队提供标准化数据API与信号研究基础设施</li>
+                            <li data-i18n="job1Desc2"><strong>系统化交易支持:</strong> 与量化研究团队紧密协作，捕获业务需求并实现数据增强/分析模块，支持衍生品交易策略开发与绩效分析</li>
+                            <li data-i18n="job1Desc3"><strong>CI/CD流水线建设:</strong> 搭建并维护GitLab/Gitee CI/CD流水线，实现自动化测试、构建与部署，提升交付效率与运维稳定性</li>
+                            <li data-i18n="job1Desc4"><strong>核心APP交付:</strong> 主导渤海证券综合APP全栈开发（iOS/Android/鸿蒙），已上架App Store及各大应用商店，服务百万级用户</li>
+                            <li data-i18n="job1Desc5"><strong>LLM/Agent智能服务:</strong> 基于FastGPT平台构建企业级MCP智能服务体系，实现客户资产查询、开户、经纪业务及投顾咨询等核心业务自动化，提升营业部运营效率40%+</li>
+                            <li data-i18n="job1Desc6"><strong>系统稳定性保障:</strong> 识别并自动化修复 recurring issues，建立监控告警体系，保障核心交易系统7×24高可用运行</li>
                         </ul>
                     </div>
 
@@ -737,15 +780,15 @@
                         <div class="job-header">
                             <img src="unicom.webp" alt="中国联通" class="company-logo">
                             <div class="job-info">
-                                <div class="job-title">高级软件工程师</div>
-                                <div class="company">中国联通</div>
-                                <div class="date">2017.09 - 2020.08</div>
+                                <div class="job-title" data-i18n="job2Title">高级软件工程师</div>
+                                <div class="company" data-i18n="job2Company">中国联通</div>
+                                <div class="date" data-i18n="job2Date">2017.09 - 2020.08</div>
                             </div>
                         </div>
                         <ul class="job-desc">
-                            <li>企业级高并发系统开发与维护，处理日均千万级请求</li>
-                            <li>数据仓库设计与ETL流程优化，支撑业务决策分析</li>
-                            <li>API网关设计与微服务架构迁移</li>
+                            <li data-i18n="job2Desc1">企业级高并发系统开发与维护，处理日均千万级请求</li>
+                            <li data-i18n="job2Desc2">数据仓库设计与ETL流程优化，支撑业务决策分析</li>
+                            <li data-i18n="job2Desc3">API网关设计与微服务架构迁移</li>
                         </ul>
                     </div>
 
@@ -753,13 +796,13 @@
                         <div class="job-header">
                             <img src="lenovo.jpeg" alt="联想" class="company-logo">
                             <div class="job-info">
-                                <div class="job-title">前端开发工程师</div>
-                                <div class="company">联想</div>
-                                <div class="date">2015.09 - 2017.08</div>
+                                <div class="job-title" data-i18n="job3Title">前端开发工程师</div>
+                                <div class="company" data-i18n="job3Company">联想</div>
+                                <div class="date" data-i18n="job3Date">2015.09 - 2017.08</div>
                             </div>
                         </div>
                         <ul class="job-desc">
-                            <li>联想网盘客户端开发</li>
+                            <li data-i18n="job3Desc1">联想网盘客户端开发</li>
                         </ul>
                     </div>
 
@@ -767,21 +810,20 @@
                         <div class="job-header">
                             <div class="company-avatar avatar-hangtian">航</div>
                             <div class="job-info">
-                                <div class="job-title">硬件研发工程师</div>
-                                <div class="company">航天科工二院203所</div>
-                                <div class="date">2012.04 - 2015.08</div>
+                                <div class="job-title" data-i18n="job4Title">硬件研发工程师</div>
+                                <div class="company" data-i18n="job4Company">航天科工二院203所</div>
+                                <div class="date" data-i18n="job4Date">2012.04 - 2015.08</div>
                             </div>
                         </div>
                         <ul class="job-desc">
-                            <li>航天军工项目硬件研发</li>
+                            <li data-i18n="job4Desc1">航天军工项目硬件研发</li>
                         </ul>
                     </div>
                 </section>
 
                 <section class="projects" style="margin-top: 40px;">
-                    <h2 class="section-title">项目经历</h2>
+                    <h2 class="section-title" data-i18n="projectsTitle">项目经历</h2>
                     
-                    <!-- GitHub仓库展示 -->
                     <div class="github-repo-card">
                         <div class="repo-header">
                             <svg class="repo-icon" viewBox="0 0 16 16" fill="currentColor">
@@ -792,7 +834,7 @@
                                 <span class="repo-visibility">Public</span>
                             </div>
                         </div>
-                        <p class="repo-desc">Fama-French多因子量化选股策略系统 - 日频自动化筛选与监控，回测年化收益15%+</p>
+                        <p class="repo-desc" data-i18n="repoDesc">Fama-French多因子量化选股策略系统 - 日频自动化筛选与监控，回测年化收益15%+</p>
                         <div class="repo-meta">
                             <span class="repo-lang">
                                 <span class="lang-color" style="background: #3572A5;"></span>
@@ -812,37 +854,37 @@
                     </div>
 
                     <div class="project-item">
-                        <div class="project-name">量化数据平台与实时行情系统</div>
+                        <div class="project-name" data-i18n="proj1Name">量化数据平台与实时行情系统</div>
                         <div class="project-tech">Python / Tushare / 聚源JYDB / REST API / WebSocket / CI/CD</div>
-                        <div class="project-desc">设计并构建券商级量化数据基础设施，整合多源实时行情（腾讯财经API/Tushare/聚源JYDB）与历史数据集。开发标准化数据API，支持量化研究团队进行信号挖掘与策略回测。实现自动化数据清洗、ETL流程与监控告警，系统可用性达99.9%。</div>
+                        <div class="project-desc" data-i18n="proj1Desc">设计并构建券商级量化数据基础设施，整合多源实时行情（腾讯财经API/Tushare/聚源JYDB）与历史数据集。开发标准化数据API，支持量化研究团队进行信号挖掘与策略回测。实现自动化数据清洗、ETL流程与监控告警，系统可用性达99.9%。</div>
                     </div>
 
                     <div class="project-item">
-                        <div class="project-name">渤海证券综合APP（iOS/Android/鸿蒙）</div>
+                        <div class="project-name" data-i18n="proj2Name">渤海证券综合APP（iOS/Android/鸿蒙）</div>
                         <div class="project-tech">GitLab CI/CD / React Native / Node.js / 微服务架构</div>
-                        <div class="project-desc">主导券商综合APP全栈开发与交付，搭建GitLab CI/CD流水线实现自动化构建、测试与多平台发布。已上架App Store、华为/小米/OPPO等应用商店，服务百万级用户。采用微服务架构，支持高并发交易请求处理。</div>
+                        <div class="project-desc" data-i18n="proj2Desc">主导券商综合APP全栈开发与交付，搭建GitLab CI/CD流水线实现自动化构建、测试与多平台发布。已上架App Store、华为/小米/OPPO等应用商店，服务百万级用户。采用微服务架构，支持高并发交易请求处理。</div>
                     </div>
 
                     <div class="project-item">
-                        <div class="project-name">LLM/Agent智能服务平台</div>
+                        <div class="project-name" data-i18n="proj3Name">LLM/Agent智能服务平台</div>
                         <div class="project-tech">FastGPT / Python / MCP / 工作流引擎 / Prompt Engineering</div>
-                        <div class="project-desc">基于FastGPT平台构建企业级MCP智能服务体系，开发MCP Server实现客户资产查询、券商开户、经纪业务及投顾咨询等核心业务线上化。运用Prompt Engineering与上下文管理优化LLM输出质量，提升营业部运营效率40%+。</div>
+                        <div class="project-desc" data-i18n="proj3Desc">基于FastGPT平台构建企业级MCP智能服务体系，开发MCP Server实现客户资产查询、券商开户、经纪业务及投顾咨询等核心业务线上化。运用Prompt Engineering与上下文管理优化LLM输出质量，提升营业部运营效率40%+。</div>
                     </div>
 
                     <div class="project-item">
-                        <div class="project-name">Fama-French多因子量化策略系统</div>
+                        <div class="project-name" data-i18n="proj4Name">Fama-French多因子量化策略系统</div>
                         <div class="project-tech">Python / Pandas / NumPy / Backtrader / Tushare Pro</div>
-                        <div class="project-desc">开发并维护基于Fama-French八因子模型的选股系统，实现日频自动化筛选与监控，回测年化收益15%+。构建因子计算引擎与风险模型，支持多策略组合管理与绩效归因分析。</div>
+                        <div class="project-desc" data-i18n="proj4Desc">开发并维护基于Fama-French八因子模型的选股系统，实现日频自动化筛选与监控，回测年化收益15%+。构建因子计算引擎与风险模型，支持多策略组合管理与绩效归因分析。</div>
                     </div>
                 </section>
             </div>
 
             <div class="right-column">
                 <section class="right-section">
-                    <h2 class="section-title">专业技能</h2>
+                    <h2 class="section-title" data-i18n="skillsTitle">专业技能</h2>
                     
                     <div class="skill-category">
-                        <div class="skill-name">编程语言</div>
+                        <div class="skill-name" data-i18n="skill1Name">编程语言</div>
                         <div class="skill-tags">
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">JavaScript/TypeScript</span>
@@ -853,19 +895,19 @@
                     </div>
 
                     <div class="skill-category">
-                        <div class="skill-name">数据基础设施</div>
+                        <div class="skill-name" data-i18n="skill2Name">数据基础设施</div>
                         <div class="skill-tags">
-                            <span class="skill-tag">实时数据管道</span>
+                            <span class="skill-tag" data-i18n="skill2Tag1">实时数据管道</span>
                             <span class="skill-tag">ETL/ELT</span>
-                            <span class="skill-tag">REST API设计</span>
+                            <span class="skill-tag" data-i18n="skill2Tag3">REST API设计</span>
                             <span class="skill-tag">WebSocket</span>
-                            <span class="skill-tag">数据仓库</span>
-                            <span class="skill-tag">时序数据库</span>
+                            <span class="skill-tag" data-i18n="skill2Tag5">数据仓库</span>
+                            <span class="skill-tag" data-i18n="skill2Tag6">时序数据库</span>
                         </div>
                     </div>
 
                     <div class="skill-category">
-                        <div class="skill-name">DevOps / CI/CD</div>
+                        <div class="skill-name" data-i18n="skill3Name">DevOps / CI/CD</div>
                         <div class="skill-tags">
                             <span class="skill-tag">GitLab CI/CD</span>
                             <span class="skill-tag">GitHub Actions</span>
@@ -877,15 +919,15 @@
                     </div>
 
                     <div class="skill-category">
-                        <div class="skill-name">量化 / 金融</div>
+                        <div class="skill-name" data-i18n="skill4Name">量化 / 金融</div>
                         <div class="skill-tags">
                             <span class="skill-tag">Fama-French</span>
-                            <span class="skill-tag">因子模型</span>
+                            <span class="skill-tag" data-i18n="skill4Tag2">因子模型</span>
                             <span class="skill-tag">Backtrader</span>
                             <span class="skill-tag">NumPy/Pandas</span>
                             <span class="skill-tag">Tushare</span>
                             <span class="skill-tag">聚源JYDB</span>
-                            <span class="skill-tag">回测系统</span>
+                            <span class="skill-tag" data-i18n="skill4Tag7">回测系统</span>
                         </div>
                     </div>
 
@@ -902,7 +944,7 @@
                     </div>
 
                     <div class="skill-category">
-                        <div class="skill-name">云平台</div>
+                        <div class="skill-name" data-i18n="skill6Name">云平台</div>
                         <div class="skill-tags">
                             <span class="skill-tag">AWS</span>
                             <span class="skill-tag">阿里云</span>
@@ -912,7 +954,7 @@
                 </section>
 
                 <section class="right-section">
-                    <h2 class="section-title">证书</h2>
+                    <h2 class="section-title" data-i18n="certTitle">证书</h2>
                     
                     <div class="cert-item">
                         <div class="cert-header">
@@ -929,17 +971,17 @@
                 </section>
 
                 <section class="right-section">
-                    <h2 class="section-title">教育背景</h2>
+                    <h2 class="section-title" data-i18n="eduTitle">教育背景</h2>
                     
                     <div class="edu-item">
-                        <div class="edu-school">天津大学</div>
-                        <div class="edu-major">硕士 · 仪器科学与技术</div>
+                        <div class="edu-school" data-i18n="edu1School">天津大学</div>
+                        <div class="edu-major" data-i18n="edu1Major">硕士 · 仪器科学与技术</div>
                         <div class="edu-date">2009 - 2012</div>
                     </div>
 
                     <div class="edu-item">
-                        <div class="edu-school">天津大学</div>
-                        <div class="edu-major">学士 · 测控技术与仪器</div>
+                        <div class="edu-school" data-i18n="edu2School">天津大学</div>
+                        <div class="edu-major" data-i18n="edu2Major">学士 · 测控技术与仪器</div>
                         <div class="edu-date">2005.09 - 2009.06</div>
                     </div>
                 </section>
@@ -948,6 +990,158 @@
     </div>
 
     <script>
+        // Translations
+        const translations = {
+            zh: {
+                title: "全栈开发 | 量化系统开发 | 金融科技基础设施",
+                location: "天津",
+                headerSummary: "CFA持证人，拥有逾10年技术开发经验，从硬件研发到金融系统架构。目前在券商网络金融部负责核心交易系统开发，主导量化数据平台、实时行情系统与CI/CD流水线建设。擅长构建高可用数据基础设施，与量化研究团队紧密协作交付交易级系统。具备扎实的金融理论基础与丰富的LLM/Agent工程经验。",
+                summaryTitle: "个人简介",
+                summaryContent: "专注于金融科技领域的数据基础设施与系统化交易技术支持。在券商核心系统开发中积累了丰富经验，擅长设计实时数据管道、量化分析API及高可用交易系统。热衷于将前沿技术（LLM/Agent、云原生）应用于金融场景，推动交易系统的智能化与自动化。",
+                experienceTitle: "工作经历",
+                job1Title: "全栈开发负责人",
+                job1Company: "渤海证券股份有限公司 · 网络金融部",
+                job1Date: "2020.09 - 至今",
+                job1Desc1: "<strong>量化数据平台架构:</strong> 设计并交付可扩展的量化数据分析存储系统，整合实时行情（腾讯财经API/Tushare/聚源JYDB）与历史数据集，为量化研究团队提供标准化数据API与信号研究基础设施",
+                job1Desc2: "<strong>系统化交易支持:</strong> 与量化研究团队紧密协作，捕获业务需求并实现数据增强/分析模块，支持衍生品交易策略开发与绩效分析",
+                job1Desc3: "<strong>CI/CD流水线建设:</strong> 搭建并维护GitLab/Gitee CI/CD流水线，实现自动化测试、构建与部署，提升交付效率与运维稳定性",
+                job1Desc4: "<strong>核心APP交付:</strong> 主导渤海证券综合APP全栈开发（iOS/Android/鸿蒙），已上架App Store及各大应用商店，服务百万级用户",
+                job1Desc5: "<strong>LLM/Agent智能服务:</strong> 基于FastGPT平台构建企业级MCP智能服务体系，实现客户资产查询、开户、经纪业务及投顾咨询等核心业务自动化，提升营业部运营效率40%+",
+                job1Desc6: "<strong>系统稳定性保障:</strong> 识别并自动化修复 recurring issues，建立监控告警体系，保障核心交易系统7×24高可用运行",
+                job2Title: "高级软件工程师",
+                job2Company: "中国联通",
+                job2Date: "2017.09 - 2020.08",
+                job2Desc1: "企业级高并发系统开发与维护，处理日均千万级请求",
+                job2Desc2: "数据仓库设计与ETL流程优化，支撑业务决策分析",
+                job2Desc3: "API网关设计与微服务架构迁移",
+                job3Title: "前端开发工程师",
+                job3Company: "联想",
+                job3Date: "2015.09 - 2017.08",
+                job3Desc1: "联想网盘客户端开发",
+                job4Title: "硬件研发工程师",
+                job4Company: "航天科工二院203所",
+                job4Date: "2012.04 - 2015.08",
+                job4Desc1: "航天军工项目硬件研发",
+                projectsTitle: "项目经历",
+                repoDesc: "Fama-French多因子量化选股策略系统 - 日频自动化筛选与监控，回测年化收益15%+",
+                proj1Name: "量化数据平台与实时行情系统",
+                proj1Desc: "设计并构建券商级量化数据基础设施，整合多源实时行情（腾讯财经API/Tushare/聚源JYDB）与历史数据集。开发标准化数据API，支持量化研究团队进行信号挖掘与策略回测。实现自动化数据清洗、ETL流程与监控告警，系统可用性达99.9%。",
+                proj2Name: "渤海证券综合APP（iOS/Android/鸿蒙）",
+                proj2Desc: "主导券商综合APP全栈开发与交付，搭建GitLab CI/CD流水线实现自动化构建、测试与多平台发布。已上架App Store、华为/小米/OPPO等应用商店，服务百万级用户。采用微服务架构，支持高并发交易请求处理。",
+                proj3Name: "LLM/Agent智能服务平台",
+                proj3Desc: "基于FastGPT平台构建企业级MCP智能服务体系，开发MCP Server实现客户资产查询、券商开户、经纪业务及投顾咨询等核心业务线上化。运用Prompt Engineering与上下文管理优化LLM输出质量，提升营业部运营效率40%+。",
+                proj4Name: "Fama-French多因子量化策略系统",
+                proj4Desc: "开发并维护基于Fama-French八因子模型的选股系统，实现日频自动化筛选与监控，回测年化收益15%+。构建因子计算引擎与风险模型，支持多策略组合管理与绩效归因分析。",
+                skillsTitle: "专业技能",
+                skill1Name: "编程语言",
+                skill2Name: "数据基础设施",
+                skill2Tag1: "实时数据管道",
+                skill2Tag3: "REST API设计",
+                skill2Tag5: "数据仓库",
+                skill2Tag6: "时序数据库",
+                skill3Name: "DevOps / CI/CD",
+                skill4Name: "量化 / 金融",
+                skill4Tag2: "因子模型",
+                skill4Tag7: "回测系统",
+                skill6Name: "云平台",
+                certTitle: "证书",
+                eduTitle: "教育背景",
+                edu1School: "天津大学",
+                edu1Major: "硕士 · 仪器科学与技术",
+                edu2School: "天津大学",
+                edu2Major: "学士 · 测控技术与仪器"
+            },
+            en: {
+                title: "Full-Stack Dev | Quant Systems | FinTech Infrastructure",
+                location: "Tianjin, China",
+                headerSummary: "CFA Charterholder with 10+ years of technical development experience, spanning from hardware R&D to financial system architecture. Currently leading core trading system development at a securities firm's Digital Finance Department, driving quant data platforms, real-time market data systems, and CI/CD pipeline construction. Expert in building high-availability data infrastructure and collaborating closely with quantitative research teams to deliver trading-grade systems. Solid financial theory foundation with extensive LLM/Agent engineering experience.",
+                summaryTitle: "Professional Summary",
+                summaryContent: "Focused on data infrastructure and systematic trading technology support in the fintech space. Extensive experience in securities core system development, specializing in real-time data pipelines, quantitative analysis APIs, and high-availability trading systems. Passionate about applying cutting-edge technologies (LLM/Agent, cloud-native) to financial scenarios, driving intelligence and automation in trading systems.",
+                experienceTitle: "Work Experience",
+                job1Title: "Lead Full-Stack Developer",
+                job1Company: "Bohai Securities Co., Ltd. · Digital Finance Department",
+                job1Date: "Sep 2020 - Present",
+                job1Desc1: "<strong>Quant Data Platform Architecture:</strong> Designed and delivered scalable quant data analytics storage systems, integrating real-time market data (Tencent Finance API/Tushare/Juyuan JYDB) with historical datasets, providing standardized data APIs and signal research infrastructure for quant research teams",
+                job1Desc2: "<strong>Systematic Trading Support:</strong> Collaborated closely with quant research teams to capture business requirements and implement data enrichment/analytics modules, supporting derivatives trading strategy development and performance analysis",
+                job1Desc3: "<strong>CI/CD Pipeline Construction:</strong> Built and maintained GitLab/Gitee CI/CD pipelines, implementing automated testing, building, and deployment, improving delivery efficiency and operational stability",
+                job1Desc4: "<strong>Core APP Delivery:</strong> Led full-stack development of Bohai Securities comprehensive APP (iOS/Android/HarmonyOS), published on App Store and major app stores, serving millions of users",
+                job1Desc5: "<strong>LLM/Agent Intelligent Services:</strong> Built enterprise-grade MCP intelligent service platform based on FastGPT, developing MCP Servers for customer asset queries, account opening, brokerage business, and investment advisory consulting automation, improving branch operational efficiency by 40%+",
+                job1Desc6: "<strong>System Stability Assurance:</strong> Identified and automated remediation of recurring issues, established monitoring and alerting systems, ensuring 7×24 high-availability operation of core trading systems",
+                job2Title: "Senior Software Engineer",
+                job2Company: "China Unicom",
+                job2Date: "Sep 2017 - Aug 2020",
+                job2Desc1: "Developed and maintained enterprise-grade high-concurrency systems, handling tens of millions of daily requests",
+                job2Desc2: "Designed data warehouses and optimized ETL processes to support business decision analysis",
+                job2Desc3: "Designed API gateways and migrated to microservices architecture",
+                job3Title: "Frontend Developer",
+                job3Company: "Lenovo",
+                job3Date: "Sep 2015 - Aug 2017",
+                job3Desc1: "Developed Lenovo Cloud Drive client application",
+                job4Title: "Hardware R&D Engineer",
+                job4Company: "CASIC Second Academy · 203 Institute",
+                job4Date: "Apr 2012 - Aug 2015",
+                job4Desc1: "Hardware R&D for aerospace and defense projects",
+                projectsTitle: "Projects",
+                repoDesc: "Fama-French multi-factor quantitative stock selection system - daily automated screening and monitoring, backtested annualized return 15%+",
+                proj1Name: "Quant Data Platform & Real-time Market Data System",
+                proj1Desc: "Designed and built securities-grade quant data infrastructure, integrating multi-source real-time market data (Tencent Finance API/Tushare/Juyuan JYDB) with historical datasets. Developed standardized data APIs to support quant research teams in signal mining and strategy backtesting. Implemented automated data cleansing, ETL processes, and monitoring alerts, achieving 99.9% system availability.",
+                proj2Name: "Bohai Securities Comprehensive APP (iOS/Android/HarmonyOS)",
+                proj2Desc: "Led full-stack development and delivery of securities comprehensive APP, built GitLab CI/CD pipelines for automated building, testing, and multi-platform deployment. Published on App Store, Huawei/Xiaomi/OPPO app stores, serving millions of users. Adopted microservices architecture to support high-concurrency trading request processing.",
+                proj3Name: "LLM/Agent Intelligent Service Platform",
+                proj3Desc: "Built enterprise-grade MCP intelligent service platform based on FastGPT, developing MCP Servers for customer asset queries, account opening, brokerage business, and investment advisory consulting automation. Utilized Prompt Engineering and context management to optimize LLM output quality, improving branch operational efficiency by 40%+.",
+                proj4Name: "Fama-French Multi-Factor Quantitative Strategy System",
+                proj4Desc: "Developed and maintained stock selection system based on Fama-French eight-factor model, implementing daily automated screening and monitoring with 15%+ backtested annualized returns. Built factor calculation engine and risk models, supporting multi-strategy portfolio management and performance attribution analysis.",
+                skillsTitle: "Skills",
+                skill1Name: "Programming Languages",
+                skill2Name: "Data Infrastructure",
+                skill2Tag1: "Real-time Data Pipelines",
+                skill2Tag3: "REST API Design",
+                skill2Tag5: "Data Warehouse",
+                skill2Tag6: "Time-series DB",
+                skill3Name: "DevOps / CI/CD",
+                skill4Name: "Quant / Finance",
+                skill4Tag2: "Factor Models",
+                skill4Tag7: "Backtesting",
+                skill6Name: "Cloud Platforms",
+                certTitle: "Certifications",
+                eduTitle: "Education",
+                edu1School: "Tianjin University",
+                edu1Major: "M.S. · Instrument Science and Technology",
+                edu2School: "Tianjin University",
+                edu2Major: "B.S. · Measurement & Control Technology"
+            }
+        };
+
+        // Language Switcher
+        const langBtns = document.querySelectorAll('.lang-btn');
+        let currentLang = 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            langBtns.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.dataset.i18n;
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Update page title
+            document.title = lang === 'zh' ? '个人简历 | Resume - Lynn Sean' : 'Resume | 个人简历 - Lynn Sean';
+        }
+
+        langBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                switchLanguage(btn.dataset.lang);
+            });
+        });
+
         // Avatar Carousel Auto-play
         const slides = document.querySelectorAll('.avatar-slide');
         let currentSlide = 0;
@@ -964,7 +1158,6 @@
             showSlide(currentSlide);
         }
 
-        // Auto-play every 4 seconds
         setInterval(nextSlide, 4000);
     </script>
 </body>
