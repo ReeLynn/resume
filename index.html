@@ -601,6 +601,14 @@
             line-height: 1.7;
         }
 
+        .section-divider {
+            border: none;
+            border-top: 2px solid #1a1a2e;
+            margin: 40px 0 30px 0;
+            position: relative;
+            opacity: 0.3;
+        }
+
         @media (max-width: 768px) {
             .container {
                 margin: 0;
@@ -824,7 +832,9 @@
                     </div>
                 </section>
 
-                <section class="projects" style="margin-top: 40px;">
+                <hr class="section-divider">
+
+                <section class="projects">
                     <h2 class="section-title" data-i18n="projectsTitle">项目经历</h2>
                     
                     <div class="github-repo-card">
@@ -883,6 +893,22 @@
             </div>
 
             <div class="right-column">
+                <section class="right-section">
+                    <h2 class="section-title" data-i18n="eduTitle">教育背景</h2>
+                    
+                    <div class="edu-item">
+                        <div class="edu-school" data-i18n="edu1School">天津大学</div>
+                        <div class="edu-major" data-i18n="edu1Major">硕士 · 仪器科学与技术</div>
+                        <div class="edu-date">2009 - 2012</div>
+                    </div>
+
+                    <div class="edu-item">
+                        <div class="edu-school" data-i18n="edu2School">天津大学</div>
+                        <div class="edu-major" data-i18n="edu2Major">学士 · 测控技术与仪器</div>
+                        <div class="edu-date">2005.09 - 2009.06</div>
+                    </div>
+                </section>
+
                 <section class="right-section">
                     <h2 class="section-title" data-i18n="skillsTitle">专业技能</h2>
                     
@@ -971,21 +997,6 @@
                     </div>
                 </section>
 
-                <section class="right-section">
-                    <h2 class="section-title" data-i18n="eduTitle">教育背景</h2>
-                    
-                    <div class="edu-item">
-                        <div class="edu-school" data-i18n="edu1School">天津大学</div>
-                        <div class="edu-major" data-i18n="edu1Major">硕士 · 仪器科学与技术</div>
-                        <div class="edu-date">2009 - 2012</div>
-                    </div>
-
-                    <div class="edu-item">
-                        <div class="edu-school" data-i18n="edu2School">天津大学</div>
-                        <div class="edu-major" data-i18n="edu2Major">学士 · 测控技术与仪器</div>
-                        <div class="edu-date">2005.09 - 2009.06</div>
-                    </div>
-                </section>
             </div>
         </div>
     </div>
